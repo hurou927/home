@@ -1,0 +1,30 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
+
+alias vimzshrc='vim ~/.zshrc'
+alias katezshrc='kate ~/.zshrc'
+alias sourcezshrc='source ~/.zshrc'
+plasmarestart(){
+  kbuildsycoca5 && kquitapp5 plasmashell && kstart5 plasmashell > /dev/null 2>&1
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
