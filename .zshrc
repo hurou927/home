@@ -1,0 +1,1 @@
+/home/hurou/.zprezto/runcoms/zshrc
