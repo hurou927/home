@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+function usage_exit() {
+        fname=$(basename $0)
+        echo "Usage: $fname dir" 1>&2
+        exit 1
+}
+
+if [ $# -ne 1 ]; then
+    usage_exit
+fi
+
+#currentDirectory=$(pwd)
+
+mkdir $1
+
+echo "move $1"
+cd $1
+
+echo "create react project"
+cp -r $HOME/local/src/react-project/* ./
+npm init --force
+npm i --save-dev webpack webpack-cli react react-dom babel-loader babel-core babel-preset-env babel-preset-react
+
+echo "build project"
+webpack
+
+echo "start server"
+serve
+
+
+#cd $currentDirectory
